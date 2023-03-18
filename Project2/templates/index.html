@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Regex Clone by Suraj Honkamble</title>
+</head>
+<body bgcolor="navyblue">
+    <h1 align="center">Regular Expression</h1>
+
+    <!--Table for Accepting Regular Expression and String-->
+    <table border="2" width="50%" align="left" bgcolor="lightblue">
+    <form action="" method="post">
+        <tr>
+            <td><h3>REGULAR EXPRESSION</h3></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="exp" value="{{exp}}" style="font-size: 12pt; height: 40px ; width: 99%;" placeholder="Insert regular expression here...."></td>
+        </tr>
+        <tr>
+            <td><h3>TEST STRING</h3></td>
+        </tr>
+
+        <!--Fix the Textarea-->
+        <style>
+            textarea {
+              resize: none;
+            }
+            </style>
+        <tr>
+            <td><textarea type="text" name="txt" value="{{txt}}" cols="80" rows="6" wrap="hard" placeholder="Insert test string here...."></textarea></td>
+        </tr>       
+            <td><input type="submit" value="SUBMIT" style="height: 50px; width:120px;"></td>
+        </tr>
+        <tr>
+            {% if count > 0 or count==0%}
+                <td><h3 style="display:inline;">Total Matched Strings:</h3>&nbsp;&nbsp;&nbsp;&nbsp;{{count}} </td>
+            
+            {% else %}
+                <td><h3 style="display:inline ;">Suggestion:</h3>&nbsp;&nbsp;&nbsp;&nbsp;{{result}}</td>
+            {% endif %}
+        </tr>
+    </form>
+    </table>
+
+     
+    <!--Table for showing matches-->
+    <table border="2" width="48%" align="right" bgcolor="lightblue">
+    <form action="" method="post"> 
+        <th><h3 align="left" >MATCHED INFORMATION</h3></th>  
+        <th>
+            <tr>
+                <td><h4>Match Number</h4</td>
+                <td><h4>Matched String</h4</td>
+                <td><h4>Matched Position</h4</td>
+            </tr>
+        </th>
+        {% for i in range(1, count+1) %}
+        <tr>
+            <td>{{i}}</td>
+            <td>{{match_str[i-1]}}</td>
+            <td>{{indices[i-1]}}</td>
+        </tr>
+        {% endfor %}
+    </table>    
+    </form>
+    
+    
+</body>
+</html>
