@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+
+
+{% block body %}
+
+
+    <form method="post">
+        <h1>Login To Add Notes</h1>
+            <p><input type=text name=username placeholder="Enter Your Name Here..... ">
+            <p><button type="submit">Login</button></p>
+    </form>
+    {%if username==""%}
+    <h4>"You Have Not Entered the Name</h4>
+    {%endif%}
+
+    
+{% endblock %}
