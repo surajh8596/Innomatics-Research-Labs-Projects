@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+note app
+{% endblock %}
+
+
+
+
+{% block body %}
+    <h1>Create A List Of Your Notes</h1>
+    <form action="" method="post">
+        <input type="text" name="note" placeholder="Enter a note">
+        <button>Add Note</button>
+    </form>
+
+    <ul>
+        {% for note in notes%}
+        {%if note!=""%}
+            <li>{{ note }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
