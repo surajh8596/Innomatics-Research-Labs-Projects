@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Display
+{% endblock %}
+
+{% block content %}
+<h1>All the Available Sabjis In This Subji Market Are.....</h1>
+
+
+    {% for sabji in sabjis %}
+<table>
+    <tr>
+        <td>{{sabji}}</td>
+    </tr>
+        
+</table>
+    {%endfor%}
+
+
+
+
+
+</form>
+{% endblock%}
