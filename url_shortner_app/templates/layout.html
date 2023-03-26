@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title%}
+        Home
+        {% endblock %}
+    </title>
+
+<!--CSS style for Copy Button and Warning Message when URL is not Valid-->
+    <style>
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          height: 50px;
+          width: 120px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 50%;
+          margin-left: -75px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+
+
+
+      .alert {
+        padding: 20px;
+        background-color:red;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+        }
+
+    .closebtn:hover {
+      color: black;
+        }
+
+    </style>
+
+<!--Background Image-->
+<style>
+  body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image:url({{url_for('static', filename='url-shortener-logo.jpg')}})
+  }
+</style>
+
+</head>
+
+<center>
+<body>
+    <h1>URL Shortner App</h1>
+    <nav>
+        <a href="{{ url_for('home') }}" >Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('short_url') }}">Short URL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('search') }}">Search Shorten URL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('history') }}">All Shorten URL</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </nav>
+
+
+    {% block body %}
+    <img src="{{url_for('static', filename='url-shortener-logo.jpg')}}" align="center"  />
+    {% endblock %}
+
+
+<!--For Validating URL and if URL is Not Correct Display Warning Message-->
+<script>
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+  
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+  }
+</script>
+
+<!--Copy Button Script-->
+<script>
+  function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied: " + copyText.value;
+  }
+  
+  function outFunc() {
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copy to clipboard";
+  }
+</script>
+
+
+</body>
+</center>
+</html>

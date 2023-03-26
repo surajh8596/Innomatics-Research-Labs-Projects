@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Short URL
+{% endblock %}
+
+
+{% block body %}
+<br><br>
+
+<table border="2" width="50%" align="center" bgcolor="tomato">
+    <form action="" method="post">
+        <tr>
+            <td style="font-size: 10pt; height: 10px ; width: 99%;"><h3>Enter URL to Shorten</h3></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="url" placeholder="https://www.url.com" value="{{url}}" style="font-size: 12pt; height: 40px ; width: 99%;"></td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; height: 10px ; width: 99%;"><h3>Enter Title for URL</h3></td>
+        </tr>
+        <tr>
+            <td><input type=" text" name="title" placeholder="give title to url" value="{{title}}" style="font-size: 12pt; height: 40px ; width: 99%;"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Short URL" style="height: 30px; width:120px;"></td>
+        </tr>
+        <tr>
+            <td style="font-size: 10pt; height: 10px ; width: 99%;"><h3>Shortened URL</h3></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="{{short_url}}" id="myInput" placeholder="shortened url" style="font-size: 12pt; height: 40px ; width: 99%;"></td>
+        </tr>
+        <tr>
+            <td ><div class="tooltip">
+            <button onclick="myFunction()" onmouseout="outFunc()" style="height: 30px; width:120px;">
+                <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                Copy Shortner URL
+            </button>
+        </div></td>
+        </tr>
+        <tr>
+        {% if is_url!=True %}
+            <td><div class="alert">
+                <span class="closebtn">&times;</span>  
+                <strong>Suggesion</strong> Please Enter Valid URL.
+              </div></td>
+        {% endif %}
+        </tr>
+
+    </form>
+</table>
+
+{% endblock %}

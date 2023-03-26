@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block body %}
+<br><br>
+<table border="2" width="50%" align="center" bgcolor="tomato">
+<form action="">
+    <tr>
+        <td style="height: 30px; width:120px;"><h3>Search Previously Shortened URL's</h3></td>
+    </tr>
+    <tr>
+        <td><input type=" text" name="url" placeholder="https://www.url.com" value="{{url}}" style="font-size: 12pt; height: 40px ; width: 99%;"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Search" style="height: 30px; width:120px;"></td>
+    </tr>
+</form>
+</table>
+
+<table border="2" width="50%" align="center" bgcolor="tomato">
+    <form action="">
+        <tr>
+            <th>Title</th>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+        </tr>
+        <tr>
+            <td>{{urls.title}}</td>
+            <td>{{urls.org_url }}</td>
+            <td>{{urls.short_url }}</a></td>
+        </tr>
+    </form>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block body %}
+<br><br>
+<table border="2" width="50%" align="center" bgcolor="tomato">
+    <form action="">
+        <tr>
+            <th>Title</th>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+        </tr>
+        {% for url in all_url %}
+        <tr>
+            <td>{{url.title}}</td>
+            <td>{{ url.org_url }}</td>
+            <td>{{ url.short_url }}</a></td>
+        </tr>
+        {% endfor %}
+</form>
+</table>
+{% endblock %}
